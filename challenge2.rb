@@ -25,7 +25,10 @@ ghosts = [
     bank_balance: 0
   }
 ]
-# Displaying each ghost's information
+# Process the ghosts array and generate the italicized text
 ghosts.each do |ghost|
-    puts "#{ghost[:name]} is #{ghost[:age]} years old , loves #{ghost[:loves]} and has #{ghost[:bank_balance]} dollars in the bank."
-end 
+    ghost_info  = "#{ghost[:name]} is #{ghost[:age]} years old, "
+    ghost_info += "loves #{ghost[:loves]} and "
+    ghost_info += "has #{ghost[:bank_balance]} dollars in the bank."
+    puts ghost_info
+end
