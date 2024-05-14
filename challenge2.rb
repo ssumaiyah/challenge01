@@ -28,4 +28,4 @@ ghosts = [
 # Displaying each ghost's information
 ghosts.each do |ghost|
     puts "#{ghost[:name]} is #{ghost[:age]} years old , loves #{ghost[:loves]} and has #{ghost[:bank_balance]} dollars in the bank."
-  end
+end 
