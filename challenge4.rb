@@ -1,18 +1,24 @@
 require 'net/http'
 require 'json'
+require 'pp'
 
-# Fetching tree data from the Winnipeg city's open dataset
-tree_url = 'https://data.winnipeg.ca/resource/d3jk-hb6j.json'
-tree_uri = URI(tree_url)
-tree_response = Net::HTTP.get(tree_uri)
-tree_data = JSON.parse(tree_response)
+url = 'https://data.winnipeg.ca/resource/d3jk-hb6j.json?$limit=306000'
+uri = URI(url)
+response = Net::HTTP.get(uri)
+tree_data = JSON.parse(response)
 
-# Counting the number of Ash Trees
+# Uncomment the following line to inspect the structure of the data
+# pp tree_data
+
+# Initialize a counter for ash trees
 ash_tree_count = 0
+
+# Iterate over each tree in the dataset
 tree_data.each do |tree|
-  if tree['common_name']&.downcase&.include?('ash')
+  # Check if the tree species contains 'ash' (case insensitive)
+  if tree['common_name']&.downcase&.include?('ash') || tree['botanical_name']&.downcase&.include?('fraxinus')
     ash_tree_count += 1
   end
 end
 
-puts "Number of Ash Trees in the dataset: #{ash_tree_count}"
+puts "Total number of Ash trees in the dataset: #{ash_tree_count}"
