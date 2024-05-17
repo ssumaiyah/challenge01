@@ -15,4 +15,4 @@ tree_data.each do |tree|
     ash_tree_count += 1
   end
 end
-puts "The total number of Ash trees in the dataset: #{ash_tree_count}"
+puts "The total number of Ash trees : #{ash_tree_count}"
