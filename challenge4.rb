@@ -7,7 +7,7 @@ url = 'https://data.winnipeg.ca/resource/d3jk-hb6j.json?$limit=306000'
 uri = URI(url)
 response = Net::HTTP.get(uri)
 tree_data = JSON.parse(response)
-pp tree_data
+#pp tree_data
 ash_tree_count = 0
 
 tree_data.each do |tree|

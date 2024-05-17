@@ -7,6 +7,7 @@ url = 'https://dog.ceo/api/breeds/list/all'
 uri = URI(url)
 response = Net::HTTP.get(uri)
 dog_breeds = JSON.parse(response) 
+ # pp dog_breeds
 
 breeds_hash = dog_breeds['message']
 
